@@ -29,15 +29,9 @@ if opcion == '1':
 	if encontrado == False:
 		print "Esa ID no existe"
 
-	#buscar = etree.Element("%s" % (identificacion))
-	'''for i in buscar:
-		if i.text == identificacion:
-			print "SI"
-		else:
-			print "NO"'''
-
 elif opcion == '2':
-	print "sdads"
+	for i in documento:
+		print "ID: ",i[0].text,", Enlace: ",i[4].text
 elif opcion == '3':
 	print "sdads"
 elif opcion == '4':
