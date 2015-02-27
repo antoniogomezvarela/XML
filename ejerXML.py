@@ -41,10 +41,21 @@ elif opcion == '3':
 				print "ID: ",i[0].text,", Fecha: ",i[2].text
 
 elif opcion == '4':
-	print "sdads"
+	becas = 0
+	premios = 0
+	for i in documento:
+		titulo = i[1].text
+		titulo = titulo.split(" ")
+		if titulo[0] == "Becas":
+			becas += 1
+		elif titulo[0] == "Premios":
+			premios += 1
+
+	print "Número de becas concedidas: ",becas
+	print "Número de premios concedidos: ",premios 
 
 elif opcion == '5':
-	print "sdads"
+	
 
 else:
 	print "Elige una opción correcta"
