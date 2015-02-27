@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 from lxml import etree
-
+from datetime import date
 tree = etree.parse('becas_premios.xml')
 documento = tree.getroot()
 
@@ -55,7 +55,21 @@ elif opcion == '4':
 	print "Número de premios concedidos: ",premios 
 
 elif opcion == '5':
-	
+	date_format = "%Y/%m/%d"
+	for i in documento:
+		incial = i.findall("plazopresentacion/plazopresentacion_item/incial")
+		final = i.findall("plazopresentacion/plazopresentacion_item/final")
+		inicial= str(incial[0].text)
+		final= str(final[0].text)
+		if inicial != "None" or final != "None":
+			inicial = inicial.split("T")
+			final = final.split("T")
+			inicial = inicial[0].split("-")
+			final = final[0].split("-")
+			d0 = date(int(inicial[0]),int(inicial[1]),int(inicial[2]))
+			d1 = date(int(final[0]),int(final[1]),int(final[2]))
+			dias = d1-d0
+			print "la beca ",i[0].text," estuvo abierta ",dias.days," dias"
 
 else:
 	print "Elige una opción correcta"
