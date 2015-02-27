@@ -32,11 +32,19 @@ if opcion == '1':
 elif opcion == '2':
 	for i in documento:
 		print "ID: ",i[0].text,", Enlace: ",i[4].text
+
 elif opcion == '3':
-	print "sdads"
+		for i in documento:
+			fecha1=i[2].text
+			fecha2=fecha1.split("-")
+			if fecha2[1] >= "02" and fecha2[1] <= "04":
+				print "ID: ",i[0].text,", Fecha: ",i[2].text
+
 elif opcion == '4':
 	print "sdads"
+
 elif opcion == '5':
 	print "sdads"
+
 else:
 	print "Elige una opción correcta"
